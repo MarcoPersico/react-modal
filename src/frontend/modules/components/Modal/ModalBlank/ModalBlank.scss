@@ -1,0 +1,22 @@
+.modal-blank {
+  &_noPropsLoaded {
+    // Size
+    width: 500px;
+    min-height: 200px;
+
+    // Position
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    text-align: center;
+
+    // Container
+    border-radius: 15px;
+    padding: 15px 25px;
+    background-color: white;
+
+    // Animations
+    animation-name: fadeIn;
+    animation-duration: 0.4s;
+  }
+}

@@ -15,24 +15,42 @@ export default class AppContainer extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { isVisible: false };
+    this.state = { isVisibleAlert: false, isVisibleBlank: false };
     this.updateIsVisibleStatus = this.updateIsVisibleStatus.bind(this);
+    this.updateIsVisibleStatusBlank = this.updateIsVisibleStatusBlank.bind(this);
   }
 
-  renderModal() {
-    if (this.state.isVisible) {
+  renderModalAlert() {
+    if (this.state.isVisibleAlert) {
       return <Modal
         type='alert'
-        message='The operation was a Success!'
-        buttonLabel='Ok'
         onModalClose={this.updateIsVisibleStatus}
-      />;
+      >
+      </Modal>;
+    }
+    return null;
+  }
+
+  renderModalBlank() {
+    if (this.state.isVisibleBlank) {
+      return <Modal
+        type='blank'
+        onModalClose={this.updateIsVisibleStatusBlank}
+      >
+        <div className='modal-blank_noPropsLoaded'>
+          dsadsa
+        </div>
+      </Modal>;
     }
     return null;
   }
 
   updateIsVisibleStatus(value) {
-    this.setState({ isVisible: value });
+    this.setState({ isVisibleAlert: value });
+  }
+
+  updateIsVisibleStatusBlank(value) {
+    this.setState({ isVisibleBlank: value });
   }
 
   render() {
@@ -40,10 +58,18 @@ export default class AppContainer extends React.Component {
       <div className='app'>
         <div>
           <button onClick={
-            () => this.updateIsVisibleStatus(!this.state.isVisible)
-          }>Click Me</button>
+            () => this.updateIsVisibleStatus(!this.state.isVisibleAlert)
+          }>
+            Click Me Alert Type
+          </button>
+          <button onClick={
+            () => this.updateIsVisibleStatusBlank(!this.state.isVisibleBlank)
+          }>
+            Click Me Blank Type
+          </button>
         </div>
-        {this.renderModal()}
+        {this.renderModalBlank()}
+        {this.renderModalAlert()}
       </div>
     );
   }
