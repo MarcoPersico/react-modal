@@ -37,7 +37,7 @@ export default class AppContainer extends React.Component {
         type='blank'
         onModalClose={this.updateIsVisibleStatusBlank}
       >
-        <div className='modal-blank_noPropsLoaded'>
+        <div className='modal-custom'>
           dsadsa
         </div>
       </Modal>;
@@ -56,13 +56,13 @@ export default class AppContainer extends React.Component {
   render() {
     return (
       <div className='app'>
-        <div>
+        <div className='simple-button'>
           <button onClick={
             () => this.updateIsVisibleStatus(!this.state.isVisibleAlert)
           }>
             Click Me Alert Type
           </button>
-          <button onClick={
+          <button className='simple-button' onClick={
             () => this.updateIsVisibleStatusBlank(!this.state.isVisibleBlank)
           }>
             Click Me Blank Type

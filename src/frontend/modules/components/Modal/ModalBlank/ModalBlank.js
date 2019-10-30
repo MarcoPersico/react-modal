@@ -4,6 +4,11 @@ import PropTypes from 'prop-types';
 // Styles
 import './ModalBlank.scss';
 
+/**
+ * This class is the ModalBlank component will render a container
+ * for a custom modal also when there's no children will display a
+ * modal to inform it
+ */
 export default class ModalBlank extends React.Component {
     constructor(props) {
         super(props);
